@@ -212,7 +212,7 @@ class _calc extends State<calc> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
-        title: Text('Bem Vindos (EM BETA)'),
+        title: Text('Bem Vindos (EM BETA 0.2)'),//hehehehehehehehehehehe
       ),
       body: SingleChildScrollView(
         child: Padding(

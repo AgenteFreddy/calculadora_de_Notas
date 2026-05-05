@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 void main() {
   runApp(const MainApp());
@@ -83,6 +85,22 @@ class _calc extends State<calc> {
 
   double acEdFisica = 0;
   double atEdFisica = 0;
+  double mediaLpl = 0;
+  double mediaPit = 0;
+  double mediaMetematica = 0;
+  double mediaHF = 0;
+  double mediaGS = 0;
+  double mediaFisica = 0;
+  double mediaQuimica = 0;
+  double mediaBiologia = 0;
+  double mediaArte = 0;
+  double mediaIngles = 0;
+  double mediaDS = 0;
+  double mediaFlutter = 0;
+  double mediaIot = 0;
+  double mediaHandsOn = 0;
+  double mediaPython = 0;
+  double mediaEdFisica = 0;
 
   String? selecmateria;
   final List<String> materias = [
@@ -104,6 +122,7 @@ class _calc extends State<calc> {
     'Python',
     'Ed.fisica'
   ];
+
   void fastcalc() {
     double ac = double.tryParse(accontroller.text) ?? 0;
     double at = double.tryParse(atcontroller.text) ?? 0;
@@ -117,56 +136,73 @@ class _calc extends State<calc> {
   void adicionar() {
     double ac = double.tryParse(accontroller.text) ?? 0;
     double at = double.tryParse(atcontroller.text) ?? 0;
+    double agh = double.tryParse(aghcontroller.text) ?? 0;
 
     setState(() {
       if (selecmateria == 'LPL') {
         acLpl = ac;
         atLpl = at;
+        mediaLpl = (((acLpl * 3) + (atLpl * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'PIT') {
         acPit = ac;
         atPit = at;
+        mediaPit = (((acPit * 3) + (atPit * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Matematica') {
         acMatematica = ac;
         atMatematica = at;
+        mediaMetematica = (((acPit * 3) + (atPit * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Historia e Filosofia') {
         acHF = ac;
         atHF = at;
+        mediaHF = (((acHF * 3) + (atHF * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Geografia e Sociologia') {
         acGS = ac;
         atGS = at;
+        mediaGS = (((acGS * 3) + (atGS * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Fisica') {
         acFisica = ac;
         atFisica = at;
+        mediaFisica = (((acFisica * 3) + (atFisica * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Quimica') {
         acQuimica = ac;
         atQuimica = at;
+        mediaQuimica = (((acQuimica * 3) + (atQuimica * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Biologia') {
         acBiologia = ac;
         atBiologia = at;
+        mediaBiologia = (((acBiologia * 3) + (atBiologia * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Arte') {
         acArte = ac;
         atArte = at;
+        mediaArte = (((acArte * 3) + (atArte * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Ingles') {
         acIngles = ac;
         atIngles = at;
+        mediaIngles = (((acIngles * 3) + (atIngles * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Design de Software') {
         acDS = ac;
         atDS = at;
+        mediaDS = (((acDS * 3) + (atDS * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Flutter') {
         acFlutter = ac;
         atFlutter = at;
+        mediaFlutter = (((acFlutter * 3) + (atFlutter * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Iot') {
         acIot = ac;
         atIot = at;
+        mediaIot = (((acIot * 3) + (atIot * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Hands-on') {
         acHandsOn = ac;
         atHandsOn = at;
+        mediaHandsOn = (((acHandsOn * 3) + (atHandsOn * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Python') {
         acPython = ac;
         atPython = at;
+        mediaPython = (((acPython * 3) + (atPython * 5) + (agh * 2)) / 10);
       } else if (selecmateria == 'Ed.fisica') {
         acEdFisica = ac;
         atEdFisica = at;
+        mediaEdFisica = (((acEdFisica * 3) + (atEdFisica * 5) + (agh * 2)) / 10);
       }
     });
   }
@@ -290,6 +326,22 @@ class _calc extends State<calc> {
                   atPython: atPython,
                   acEdFisica: acEdFisica,
                   atEdFisica: atEdFisica,
+                  mediaLpl: mediaLpl,
+                  mediaPit: mediaPit,
+                  mediaMetematica: mediaMetematica,
+                  mediaHF: mediaHF,
+                  mediaGS: mediaGS,
+                  mediaFisica: mediaFisica,
+                  mediaQuimica: mediaQuimica,
+                  mediaBiologia: mediaBiologia,
+                  mediaArte: mediaArte,
+                  mediaIngles: mediaIngles,
+                  mediaDS: mediaDS,
+                  mediaFlutter: mediaFlutter,
+                  mediaIot: mediaIot,
+                  mediaHandsOn: mediaHandsOn,
+                  mediaPython: mediaPython,
+                  mediaEdFisica: mediaEdFisica,
               ),
               SizedBox(width: 20, height: 20,),
             ],
@@ -348,6 +400,38 @@ class tabela extends StatefulWidget {
 
   final double acEdFisica;
   final double atEdFisica;
+  
+  final double mediaLpl;
+
+  final double mediaPit;
+
+  final double mediaMetematica;
+
+  final double mediaHF;
+
+  final double mediaGS;
+
+  final double mediaFisica;
+
+  final double mediaQuimica;
+  
+  final double mediaBiologia;
+
+  final double mediaArte;
+
+  final double mediaIngles;
+
+  final double mediaDS;
+
+  final double mediaFlutter;
+
+  final double mediaIot;
+
+  final double mediaHandsOn;
+
+  final double mediaPython;
+  
+  final double mediaEdFisica;
 
   const tabela({super.key,
     required this.acLpl,
@@ -382,6 +466,22 @@ class tabela extends StatefulWidget {
     required this.atPython,
     required this.acEdFisica,
     required this.atEdFisica,
+    required this.mediaLpl,
+    required this.mediaPit,
+    required this.mediaMetematica,
+    required this.mediaHF,
+    required this.mediaGS,
+    required this.mediaFisica,
+    required this.mediaQuimica,
+    required this.mediaBiologia,
+    required this.mediaArte,
+    required this.mediaIngles,
+    required this.mediaDS,
+    required this.mediaFlutter,
+    required this.mediaIot,
+    required this.mediaHandsOn,
+    required this.mediaPython,
+    required this.mediaEdFisica,
   });
 
   @override
@@ -403,97 +503,97 @@ class _tabela extends State<tabela>{
                   DataCell(Text('LPL')),
                   DataCell(Text('${widget.atLpl}')),
                   DataCell(Text('${widget.acLpl}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaLpl}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('PIT')),
                   DataCell(Text('${widget.atPit}')),
                   DataCell(Text('${widget.acPit}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaPit}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Matematica')),
                   DataCell(Text('${widget.atMatematica}')),
                   DataCell(Text('${widget.acMatematica}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaMetematica}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Historia e Filosofia')),
                   DataCell(Text('${widget.atHF}')),
                   DataCell(Text('${widget.acHF}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaHF}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Geografia e Sociologia')),
                   DataCell(Text('${widget.atGS}')),
                   DataCell(Text('${widget.acGS}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaGS}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Fisica')),
                   DataCell(Text('${widget.atFisica}')),
                   DataCell(Text('${widget.acFisica}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaFisica}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Quimica')),
                   DataCell(Text('${widget.atQuimica}')),
                   DataCell(Text('${widget.acQuimica}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaQuimica}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Biologia')),
                   DataCell(Text('${widget.atBiologia}')),
                   DataCell(Text('${widget.acBiologia}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaBiologia}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Arte')),
                   DataCell(Text('${widget.atArte}')),
                   DataCell(Text('${widget.acArte}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaArte}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Ingles')),
                   DataCell(Text('${widget.atIngles}')),
                   DataCell(Text('${widget.acIngles}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaIngles}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Design de Software')),
                   DataCell(Text('${widget.atDS}')),
                   DataCell(Text('${widget.acDS}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaDS}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Flutter')),
                   DataCell(Text('${widget.atFlutter}')),
                   DataCell(Text('${widget.acFlutter}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaFlutter}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Iot')),
                   DataCell(Text('${widget.atIot}')),
                   DataCell(Text('${widget.acIot}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaIot}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Hands-on')),
                   DataCell(Text('${widget.atHandsOn}')),
                   DataCell(Text('${widget.acHandsOn}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaHandsOn}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Python')),
                   DataCell(Text('${widget.atPython}')),
                   DataCell(Text('${widget.acPython}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaPython}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('Ed.fisica')),
                   DataCell(Text('${widget.atEdFisica}')),
                   DataCell(Text('${widget.acEdFisica}')),
-                  DataCell(Text('')),
+                  DataCell(Text('${widget.mediaEdFisica}')),
                 ]),
               ],
               columns: [
